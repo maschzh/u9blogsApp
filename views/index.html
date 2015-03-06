@@ -30,19 +30,19 @@
     				<div class="collapse navbar-collapse">
     					<a href="" class="navbar-brand"><strong>U9BLOG</strong></a>
     					<ul class="nav navbar-nav" ng-repeat="title in menu">
-    						<li><a href="#/{{title}}">{{title}}</a></li>
+    						<li><a href="#/{{title.code}}"><strong>{{title.name}}</strong></a></li>
     					</ul>
     				</div>
     			</div>
-                                          <div class="navbar-header navbar-right">
-                                                        <div class="navbar-collapse collapse">
-                                                                     <ul class="nav navbar-nav">
-                                                                         <li><a href="">Login</a></li>
-                                                                         <li> <a href="">Sigin</a></li>
-                                                                         <li><a href="">Sigout</a></li>
-                                                                     </ul>
-                                                        </div>
-                                          </div>
+          <div class="navbar-header navbar-right">
+              <div class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a href=""><button class="btn btn-xs btn-primary">登录</button></a></li>
+                    <li> <a href=""><button class="btn btn-xs btn-success">注册</button></a></a></li>
+                    <li><a href=""><button class="btn btn-xs btn-danger">退出</button></a></a></li>
+                  </ul>
+              </div>
+          </div>
     		</div>
     	</div>
     	<ng-view></ng-view>

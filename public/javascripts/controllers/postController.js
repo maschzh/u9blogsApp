@@ -1,6 +1,11 @@
 angular.module("u9blogApp.Controllers", [])
 	.controller("u9blogCtrl", function ($scope){
-		$scope.menu=["Home","Aticals", "About", "Setting"];
+		$scope.menu=[
+			{name:"首页", code:"home"},
+			{name:"文章", code:"artical"}, 
+			{name:"关于", code:"about"}, 
+			{name:"设置", code:"setting"}
+		];
 	})
 	.controller("postsCtrl", function ($scope){
 		$scope.posts =[

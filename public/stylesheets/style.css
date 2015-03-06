@@ -1,5 +1,5 @@
 body {
-  padding: 50px 10px 0px 10px;
+  padding: 58px 10px 0px 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -15,12 +15,12 @@ a {
 	width: 18px;
 	height: 18px;
 }
-.cell{
+/*.cell{
     margin-top: 5px;
     margin-bottom: 5px;
     padding-top: 8px;
     padding-bottom: 8px;	
-}
+}*/
 .cell:hover{
     background: #f5f5f5;
 }
