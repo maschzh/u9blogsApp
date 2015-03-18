@@ -1,4 +1,4 @@
-angular.module('u9blogApp', ["ngResource","ngRoute","u9blogApp.Controllers"])
+angular.module('u9blogApp', ["ngResource","ngRoute","u9blogApp.Controllers", "u9blogApp.Services","chieffancypants.loadingBar"])
 	.config(function ($routeProvider, $locationProvider){
 		$routeProvider.when('/',{
 			controller:'postsCtrl',
@@ -7,6 +7,10 @@ angular.module('u9blogApp', ["ngResource","ngRoute","u9blogApp.Controllers"])
 		.when("/artical",{
 			controller:'aticalsCtrl',
 			templateUrl:'/partials/post.html'
+		})
+		.when("/newpost",{
+			controller:'newPostCtrl',
+			templateUrl:'/partials/newpost.html'
 		})
 		.when("/about",{
 			controller:'aboutCtrl',
@@ -18,4 +22,5 @@ angular.module('u9blogApp', ["ngResource","ngRoute","u9blogApp.Controllers"])
 		})
 		.otherwise({redirectTo:'/'});
 		//$locationProvider.html5Mode(true);
-	});
+	})
+	;
