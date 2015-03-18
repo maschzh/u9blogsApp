@@ -1,5 +1,5 @@
 angular.module("u9blogApp.Controllers",['ui.bootstrap', 'u9blogApp.Services'])
-	.controller("u9blogCtrl", function ($scope, $modal, $log){
+	.controller("u9blogCtrl", function ($scope, $modal, $log, $rootScope, api){
 		$scope.menu=[
 			{name:"首页", code:"home"},
 			{name:"文章", code:"artical"}, 
@@ -7,7 +7,7 @@ angular.module("u9blogApp.Controllers",['ui.bootstrap', 'u9blogApp.Services'])
 			{name:"设置", code:"setting"}
 		];
 		$scope.logout= function (){
-			alert("Hello world!");
+			$rootScope.logout();
 		};
 
 		$scope.login = function (){
@@ -22,9 +22,11 @@ angular.module("u9blogApp.Controllers",['ui.bootstrap', 'u9blogApp.Services'])
 				templateUrl: '/partials/signin.html',
 				controller: 'signinCtrl',
 			});
-		}
+		};
+
+		$scope.user = $rootScope.getUser();
 	})
-	.controller("postsCtrl", function ($scope, $window){
+	.controller("postsCtrl", function ($scope, $window, api, $rootScope){
 		$scope.posts =[
 			{post:"Node.js的新特性", title: "Angualr", followe_count:1, reply_count: 2, img:"images/favicon.ico", type:"Aske", timeout: 6},
 			{post:"Node.js的应用场景", title: "demo", followe_count:3, reply_count: 70, img:"images/favicon.ico", type:"Share", timeout: 5},
@@ -39,20 +41,31 @@ angular.module("u9blogApp.Controllers",['ui.bootstrap', 'u9blogApp.Services'])
 		];
 
 		$scope.user={
-			name: "maschzh",
 			score: 890
 		};
+		$scope.user.name = $rootScope.getUser();
+		
+
 		$scope.scores=[
 			{user:"maschzh", score: 8000},
 			{user:"chenzhi", score: 5000},
 		];
 
 		$scope.newpost = function (){
-			$window.location.href="#/newpost";
+			$window.location.href="#/create";
 		}
 	})
-	.controller('newPostCtrl', function ($scope, $window){
-		
+	.controller('newPostCtrl', function ($scope, $window, api){
+		var post = $scope.post ={
+			title: '',
+			content: ''
+		}; 
+		post.types =[{'name':'问答' ,'code':1},{'name':'分享', 'code':2},{'name':'招聘','code':3}];
+		post.type=post.types[-1];
+
+		$scope.create = function (){
+			$window.location.href="#";
+		}
 	})
 	.controller('aticalsCtrl', function ($scope){
 
@@ -82,8 +95,9 @@ angular.module("u9blogApp.Controllers",['ui.bootstrap', 'u9blogApp.Services'])
 			}
 			api.login($scope.user).success(function (data){
 				$rootScope.setToken(data._id);
-				$rootScope.name = data.name;
+				$rootScope.setUser(data.name);
 				$modalInstance.close();
+				$window.location.href="#";
 			}).error(function (data){
 				alert(data);
 			});

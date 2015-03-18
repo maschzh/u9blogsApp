@@ -1,8 +1,36 @@
-<div class="well">
-	<div class="panel">
-		<h3 class="panel panel-head">Articals is very good</h3>
-		<div class="panel panel-body">
-			This is a good artical!
+<div class="panel panel-default row">
+	<div class="col-xs-9 col-md-9">
+		<div class="well">
+			<h5 class="text-info">
+				<ul class="nav nav-pills" role="group" aria-label="...">
+					<li role="presentation"><button class="btn btn-xs" ng-click="home()"><strong>首页</strong></button></li>
+					<li role="presentation"><button class="btn btn-xs" disabled><strong>/发布话题</strong></button></li>
+				</ul>
+			</h5>
+			<form id="form" class="form">
+				<div class="form-group">
+					<span>选择板块：</span>
+					<select class="form-control selectWidth" ng-model='post.value' ng-options="post.name for post in post.types">
+						<option value="">请选择板块</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control"  placeholder="标题数字10个以上"  ng-model="post.title" />
+				</div>
+
+				<div class="form-group">
+					<textarea class="form-control" rows="20" placeholder="发表内容"  ng-model="post.content"></textarea>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success" ng-click="create()">提交</button>
+				</div>
+			</form>
+			
+		</div>
+	</div>
+	<div class="col-xs-3 col-md-3">
+		<div class="well">
+			<h5 class="text-info"><strong>发表话题规则</strong></h5>
 		</div>
 	</div>
 </div>

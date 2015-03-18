@@ -28,3 +28,28 @@ a {
 .header{
     background-color: #00CC99;
 }
+
+.selectWidth{
+   width: 150px;
+   display: inline;
+}
+
+.markdown_editor .markdown_in_preview,
+.markdown_editor .markdown_in_editor {
+  display: none;
+}
+
+.markdown_editor.in_preview .markdown_in_preview {
+  display: block;
+}
+
+.markdown_editor.in_editor .markdown_in_editor {
+  display: block;
+}
+textarea#title {
+  width: 98%;
+  border: none;
+  margin-bottom: 1em;
+  resize: none;
+  height: 20px;
+}

@@ -8,7 +8,7 @@ angular.module('u9blogApp', ["ngResource","ngRoute","u9blogApp.Controllers", "u9
 			controller:'aticalsCtrl',
 			templateUrl:'/partials/post.html'
 		})
-		.when("/newpost",{
+		.when("/create",{
 			controller:'newPostCtrl',
 			templateUrl:'/partials/newpost.html'
 		})
