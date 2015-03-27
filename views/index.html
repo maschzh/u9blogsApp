@@ -27,7 +27,7 @@
   </head>
   <body ng-controller="u9blogCtrl" screen_capture_injected="true">
     	<div  class="navbar navbar-inverse navbar-fixed-top top" role="navigation">
-    		<div class="container">
+    		<div class="container-fluid">
     			<div class="navbar-header">
     				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
     					<span class="sr-only">Toggle navigation</span>
@@ -43,14 +43,14 @@
     				</div>
     			</div>
                     
-                    <div class="navbar-collapse collapse navbar-right" >
-                            <form class="navbar-form navbar-right" role="form">
-                                <button class="btn btn-md btn-primary" ng-click="login()" ng-show="!isSeesionActive()">登录</button>
-                                <button class="btn btn-md btn-success" ng-click="signin()" ng-show="!isSeesionActive()">注册</button>
-                                <span  class="btn btn-md btn-success" ng-show="isSeesionActive()">{{user}}</span>
-                                <button class="btn btn-md btn-danger" ng-click="logout()" ng-show="isSeesionActive()">退出</button>
-                          </form>
-                    </div>
+                                        <div class="navbar-collapse collapse navbar-right" >
+                                                <form class="navbar-form navbar-right" role="form">
+                                                    <button class="btn btn-md btn-primary" ng-click="login()" ng-show="!isSeesionActive()">登录</button>
+                                                    <button class="btn btn-md btn-success" ng-click="signin()" ng-show="!isSeesionActive()">注册</button>
+                                                    <span  class="btn btn-md btn-success" ng-show="isSeesionActive()">{{user}}</span>
+                                                    <button class="btn btn-md btn-danger" ng-click="logout()" ng-show="isSeesionActive()">退出</button>
+                                              </form>
+                                        </div>
     		</div>
     	</div>
     	<ng-view></ng-view>

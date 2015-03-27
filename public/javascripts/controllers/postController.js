@@ -64,6 +64,7 @@ angular.module("u9blogApp.Controllers",['ui.bootstrap', 'u9blogApp.Services'])
 		post.type=post.types[-1];
 
 		$scope.create = function (){
+			
 			$window.location.href="#";
 		}
 	})
