@@ -33,11 +33,11 @@ exports.signin = function (req, res, next){
 				if(err){
 					res.json({error: err});
 				}
-				req.session.user = {
-					'name': doc.name,
-					'email': doc.email,
-					'id': doc.id
-				}
+				//req.session.user = {
+				//	'name': doc.name,
+				//	'email': doc.email,
+				//	'id': doc.id
+				//};
 				req.session.loggedIn = true;
 				return res.json({success: '恭喜你注册成功！'});
 			});
