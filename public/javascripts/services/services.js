@@ -1,7 +1,7 @@
 angular.module('u9blogApp.Services', [])
              .factory('api', function ($http,  $rootScope, $window){
-             		var url = "http://localhost:3000";
-
+             		//var url = "http://localhost:3000";
+                                          var url ="https://u9blogsapp.herokuapp.com";
              		$rootScope.logout = function (){
              			$rootScope.setToken('');
              			$rootScope.setUser('');
