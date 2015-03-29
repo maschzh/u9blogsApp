@@ -1,4 +1,4 @@
-<div class="panel panel-default row container-fluid">
+<div class="panel panel-default row container-fluid bg">
 	<div class="col-xs-12 col-md-9">
 		<div class="well">
 			<h5 class="text-info">
@@ -10,7 +10,7 @@
 			<form id="form" class="form">
 				<div class="form-group">
 					<span>选择板块：</span>
-					<select class="form-control selectWidth" ng-model='post.value' ng-options="post.name for post in post.types">
+					<select class="form-control selectWidth" ng-model='post.value' ng-options="post.name for post in post.types" ng-change="selectChange()">
 						<option value="">请选择板块</option>
 					</select>
 				</div>

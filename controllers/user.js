@@ -39,7 +39,7 @@ exports.signin = function (req, res, next){
 				//	'id': doc.id
 				//};
 				req.session.loggedIn = true;
-				return res.json({success: '恭喜你注册成功！'});
+				return res.json(doc);
 			});
 		});
 	});
@@ -51,13 +51,20 @@ exports.login = function (req, res, next){
 	var pass = validator.trim(user.pass).toLowerCase();
 
 	User.findOne({loginname: name}, function (err, dbUser){
-		pwdMgr.comparePassword(pass, dbUser.pass, function (err, isPasswordMatch){
-			if(isPasswordMatch){
-				dbUser.pass = '';
-				return res.json(dbUser);
-			} else {
-				return res.json({error: '登录失败,密码不正确！'});
-			}
-		});
+		if(err){
+			return res.json({error: err});
+		}
+		if(dbUser){
+			pwdMgr.comparePassword(pass, dbUser.pass, function (err, isPasswordMatch){
+				if(isPasswordMatch){
+					dbUser.pass = '';
+					return res.json(dbUser);
+				} else {
+					return res.json({error: '登录失败,密码不正确！'});
+				}
+			});
+		} else {
+			return res.json({error:'用户名不存在请注册'});
+		}
 	});
 };

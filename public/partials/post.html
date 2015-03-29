@@ -1,8 +1,94 @@
-<div class="well">
-	<div class="panel">
-		<h3 class="panel panel-head">Articals is very good</h3>
-		<div class="panel panel-body">
-			This is a good artical!
+<div class="panel panel-default row container-fluid bg">
+	<div class="col-xs-12 col-md-9">
+		<div class="well">
+			<h2 class="center">{{post.title}}</h2>
+			<div class="row">
+				<p class="col-md-12">{{post.content}}</p>
+			</div>
+		</div>
+		<div class="panel  panel-default">
+			<div class="panel-heading">
+				<span class="badge">2</span>
+				回复
+			</div>
+			<div class="panel-body">
+				<div class="media">
+					<div class="pull-left media-left">
+						<a>
+							<img src="images/favicon.ico" alt="" class="media-object">
+						</a>
+					</div>
+					<div class="pull-right media-right">
+						<a class="like" href="" ng-click="like()">
+							<i class="glyphicon glyphicon-thumbs-up" title="喜欢">{{like_count}}</i>
+						</a>
+						<a class="like" href="" ng-click="reply()">
+							<i class="glyphicon glyphicon-share-alt" title="回复"></i>
+						</a>
+						<a class="like" href="" ng-click="delete()">
+							<i class="glyphicon glyphicon-trash" title="删除"></i>
+						</a>
+						<a class="like" href="" ng-click="edit()">
+							<i class="glyphicon glyphicon-edit" title="修改"></i>
+						</a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">
+							<strong>chenzhic</strong>
+							<span>1楼</span>
+							<span>*13小时前</span>
+						</h4>
+						<p>徽章组件在 Internet Explorer 8 浏览器中不会自动消失，因为 IE8 不支持 :empty 选择符。</p>
+					</div>
+					<div class="editor" ng-show="isDisplay">
+						<form id="form" class="form">
+							<div class="form-group">
+								<textarea class="form-control" rows="10" placeholder="请回复内容" ng-model="post.replyTocontent"></textarea>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-default" ng-click="cancel()">取消</button>
+								<button class="btn btn-success" ng-click="replyform()">回复</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">添加回复</div>
+			<div class="panel-body">
+				<form id="form" class="form">
+					<div class="form-group">
+						<textarea class="form-control" rows="10" placeholder="请回复内容" ng-model="post.replycontent"></textarea>
+							</div>
+						<div class="form-group">
+							<button class="btn btn-default" ng-click="cancelReply()">取消</button>
+							<button class="btn btn-success" ng-click="newReply()">回复</button>
+						</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<div class="col-xs-12 col-md-3">
+		<div class="well">
+			<h5 class="text-info"><strong>作者信息</strong></h5>
+			<div class="row">
+				<div class="col-md-2"><img class="img-rounded"src="images/favicon.ico" alt=""></div>
+				<div class="col-md-10">{{user.name}}</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-md-11">
+					<label>积分：</label><label class="label label-primary">{{user.score}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="well">
+			<h5 class="text-info"><strong>无人回答问题</strong></h5>
+			<div class="list-group-item row" ng-repeat="item in posts">
+				<a href="#/topic/{{item._id}}" >{{item.title}}</a>
+			</div>
 		</div>
 	</div>
 </div>

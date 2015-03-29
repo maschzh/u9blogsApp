@@ -1,8 +1,12 @@
-angular.module('u9blogApp', ["ngResource","ngRoute","u9blogApp.Controllers", "u9blogApp.Services","chieffancypants.loadingBar"])
+angular.module('u9blogApp', ["ngResource","ngRoute","u9blogApp.Controllers", "u9blogApp.Services", "u9blogApp.Directives","u9blogApp.Filters", "chieffancypants.loadingBar"])
 	.config(function ($routeProvider, $locationProvider){
 		$routeProvider.when('/',{
 			controller:'postsCtrl',
 			templateUrl:"/partials/postlist.html"
+		})
+		.when('/topic/:top_id',{
+			controller:'postCtrl',
+			templateUrl:"/partials/post.html"
 		})
 		.when("/artical",{
 			controller:'aticalsCtrl',

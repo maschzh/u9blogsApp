@@ -1,23 +1,31 @@
 <div class="panel panel-default row container-fluid">
 	<div class="col-xs-12 col-md-9">
 		<div class="well">
-			<h5 class="text-info">
-				<ul class="nav nav-pills" role="group" aria-label="...">
-					<li role="presentation"><button class="btn btn-xs"><strong>全部</strong></button></li>
-					<li role="presentation"><button class="btn btn-xs"><strong>精华</strong></button></li>
-					<li role="presentation"><button class="btn btn-xs"><strong>问答</strong></button></li>
-					<li role="presentation"><button class="btn btn-xs"><strong>分享</strong></button></li>
-					<li role="presentation"><button class="btn btn-xs"><strong>招聘</strong></button></li>
+			<h4 class="text-info">
+				<ul class="nav nav-pills navli" role="group" aria-label="...">
+					<li role="presentation"><button class="btn btn-sm {{tabCss.tab4}}" ng-click="getTabs('all')"><strong>全部</strong></button></li>
+					<li role="presentation"><button class="btn btn-sm {{tabCss.tab0}}" ng-click="getTabs('good')"><strong>精华</strong></button></li>
+					<li role="presentation"><button class="btn btn-sm {{tabCss.tab1}}" ng-click="getTabs('ask')"><strong>问答</strong></button></li>
+					<li role="presentation"><button class="btn btn-sm {{tabCss.tab2}}" ng-click="getTabs('share')"><strong>分享</strong></button></li>
+					<li role="presentation"><button class="btn btn-sm {{tabCss.tab3}}" ng-click="getTabs('job')"><strong>招聘</strong></button></li>
+
 				</ul>
-			</h5>
-			<div class="list-group-item row cell" ng-repeat="post in posts">
-				<a href=""><img src="{{post.img}}" alt="" class="img img-rounded"></a>
-				<span><label class="label label-default"><i>{{post.title}}</i></label></span>
-				<span><label class="label label-info">{{post.followe_count}}/{{post.reply_count}}</label></span>
-				<span><label class="label label-primary">{{post.type}}</label></span>
-				<span><a href="#"><b class="text-info">{{post.post}}</b></a></span>
-				<a href="#" class="pull-right"><img src="{{post.img}}" alt="" class="img1 img-rounded"><span class="badge">{{post.timeout}}</span></a>
-			</div>
+			</h4>
+			<paging>
+				<div class="list-group-item row cell" ng-repeat="post in posts">
+					<a href=""><img src="images/favicon.ico" alt="" class="img img-rounded"></a>
+					<span><label class="label label-default"><i>{{post.tab}}</i></label></span>
+					<span><label class="label label-info">{{post.reply_count}}/{{post.visit_count}}</label></span>
+					<span><label class="label label-primary">{{post.type}}</label></span>
+					<span><a href="#/topic/{{post._id}}"><b class="text-info">{{post.title}}</b></a></span>
+					<a href="#" class="pull-right"><img src="{{post.img}}" alt="" class="img1 img-rounded"><span class="badge">{{post.timeout}}</span></a>
+				</div>
+				<ul ng-show="posts.length>0" class="pagination" num-pages="tasks.pageCount" current-page="tasks.currentPage" on-select-page="selectPage(page)">
+					<li ng-class="{disabled: noPrevious()}"><a href="" ng-click="selectPrevious()">&laquo;</a></li>
+					<li ng-repeat="page in pages" ng-class="{active: isActive(page)}"> <a ng-click="selectPage(page)">{{page}}</a></li>
+				               <li ng-class="{disabled: noNext()}"> <a ng-click="selectNext()">&raquo;</a></li>
+				</ul>
+			<paging>
 		</div>
 	</div>
 	<div class="col-xs-12 col-md-3">
@@ -39,8 +47,8 @@
 		</div>
 		<div class="well">
 			<h5 class="text-info"><strong>无人回答问题</strong></h5>
-			<div class="list-group-item row" ng-repeat="post in posts">
-				<a href="#" >{{post.post}}</a>
+			<div class="list-group-item row" ng-repeat="post in unanwser">
+				<a href="#/topic/{{post._id}}" >{{post.title}}</a>
 			</div>
 		</div>
 		<div class="well">

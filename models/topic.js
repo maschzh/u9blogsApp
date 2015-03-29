@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
-var config = require('../config');
-var _ = require('lodash');
 
 var TopicSchema = new Schema({
 	title : { type : String },
@@ -16,7 +14,9 @@ var TopicSchema = new Schema({
 	create_at: {type: Date, default: Date.now},
 	update_at: { type: Date, default: Date.now},
 	last_reply:{ type: ObjectId},
-	last_reply_at:{ type: Date, default,Date.now},
+	last_reply_at:{ type: Date, default: Date.now},
 	content_is_html: { type: Boolean},
 	tab: { type: String}
-})
+});
+
+module.exports = mongoose.model('Topic', TopicSchema);
