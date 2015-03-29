@@ -27,20 +27,20 @@
     				<ul class="nav navbar-nav" ng-repeat="title in menu">
     					<li><a href="#/{{title.code}}"><strong>{{title.name}}</strong></a></li>
     				</ul>
-                                                            <ul class="nav navbar-nav navbar-right" role="group" aria-label="...">
+                                                            <!--ul class="nav navbar-nav navbar-right" role="group" aria-label="...">
                                                                          <li ng-show="!isSeesionActive()"><a href=""><strong  ng-click="login()"  class="btn btn-sm btn-primary">登录</strong></a></li>
                                                                          <li ng-show="!isSeesionActive()"><a href=""><strong ng-click="signin()"  class="btn btn-sm btn-success">注册</strong></a></li>
                                                                          <li ng-show="isSeesionActive()"><a href="" ><strong  class="btn btn-sm btn-success">{{user}}</strong></a></li>
                                                                          <li ng-show="isSeesionActive()"><a href=""><strong ng-click="logout()"  class="btn btn-sm btn-danger">退出</strong></a></li>
-                                                            </ul>
-                                                             <!--div class="navbar-collapse collapse navbar-right" >
+                                                            </ul-->
+                                                             <div class="navbar-collapse collapse navbar-right" >
                                                                     <div class="navbar-form navbar-right" role="form"> 
                                                                             <button class="btn btn-md btn-primary" ng-click="login()" ng-show="!isSeesionActive()">登录</button>
                                                                             <button class="btn btn-md btn-success" ng-click="signin()" ng-show="!isSeesionActive()">注册</button>
                                                                             <span  class="btn btn-md btn-success" ng-show="isSeesionActive()">{{user}}</span>
                                                                             <button class="btn btn-md btn-danger" ng-click="logout()" ng-show="isSeesionActive()">退出</button>
                                                                   </div>
-                                                            </div-->
+                                                            </div>
     			</div>
                                             
     		</div>
